@@ -7,7 +7,8 @@ const App = () => {
   const [data, setdata] = useState([]);
 
   function fetchData() {
-    axios.get("https://dummyjson.com/products")
+    fetch("https://dummyjson.com/products")
+    .then((res)=>(res.json()))
     .then((res)=>{setdata(res)})
     .catch((err)=>{console.log(err); setdata(`An error occurred: ${err}`)})
   }
